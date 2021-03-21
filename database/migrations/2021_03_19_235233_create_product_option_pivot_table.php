@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductSettingGroupPivotTable extends Migration
+class CreateProductOptionPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductSettingGroupPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_setting_group_pivot', function (Blueprint $table) {
+        Schema::create('product_option_pivot', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('product_id');
@@ -24,13 +24,14 @@ class CreateProductSettingGroupPivotTable extends Migration
                 ->onDelete('cascade')
             ;
 
-            $table->unsignedBigInteger('setting_group_id');
+            $table->unsignedBigInteger('product_option_id');
             $table
-                ->foreign('setting_group_id')
+                ->foreign('product_option_id')
                 ->references('id')
-                ->on('product_setting_groups')
-                ->onDelte('cascade')
+                ->on('product_options')
+                ->onDelete('cascade')
             ;
+
             $table->timestamps();
         });
     }
@@ -42,6 +43,6 @@ class CreateProductSettingGroupPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_setting_group_pivots');
+        Schema::dropIfExists('product_setting_pivots');
     }
 }

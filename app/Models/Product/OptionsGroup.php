@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductSetttigGroup extends Model
+class OptionsGroup extends Model
 {
     use HasFactory;
 
-    public $table = 'product_setting_group_pivot';
+    public $table = 'product_options_group';
 }

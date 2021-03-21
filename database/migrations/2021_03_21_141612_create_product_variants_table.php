@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductSettingPivotTable extends Migration
+class CreateProductVariantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateProductSettingPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_setting_pivot', function (Blueprint $table) {
+        Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name', 128);
+
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateProductSettingPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_setting_pivots');
+        Schema::dropIfExists('product_variants');
     }
 }
